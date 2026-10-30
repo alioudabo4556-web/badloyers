@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BADLOYERS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="ecran-connexion" class="connexion cache">
+    <div class="boite-connexion">
+      <div class="logo">🏠 BAD<span>LOYERS</span></div>
+      <p id="texte-connexion">Créez votre code d'accès</p>
+      <input type="password" id="code" placeholder="Code (4 caractères minimum)">
+      <button class="bouton" id="btn-connexion">Entrer</button>
+      <p id="erreur-connexion" class="erreur"></p>
+    </div>
+  </div>
+
+  <header class="entete">
+    <div class="logo">🏠 BAD<span>LOYERS</span></div>
+    <p class="slogan">Gérez vos loyers simplement</p>
+  </header>
+
+  <main class="contenu">
+    <section class="cartes">
+      <div class="carte vert">
+        <p>Loyers encaissés (ce mois)</p>
+        <h2 id="total-encaisse">0 FCFA</h2>
+      </div>
+      <div class="carte rouge">
+        <p>Impayés (ce mois)</p>
+        <h2 id="total-impayes">0 FCFA</h2>
+      </div>
+      <div class="carte jaune">
+        <p>Locataires</p>
+        <h2 id="total-locataires">0</h2>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button class="bouton" id="btn-locataire">➕ Ajouter un locataire</button>
+      <button class="bouton secondaire" id="btn-paiement">💰 Enregistrer un paiement</button>
+      <button class="bouton sombre" id="btn-export">📊 Exporter (Excel)</button>
+      <button class="bouton sombre" id="btn-verrouiller">🔒 Verrouiller</button>
+    </section>
+
+    <h3 class="titre-liste">Mes locataires</h3>
+    <section id="liste-locataires" class="liste"></section>
+  </main>
+
+  <div class="fond" id="modal-locataire">
+    <div class="fenetre">
+      <h3>Nouveau locataire</h3>
+      <form id="form-locataire">
+        <input type="text" id="nom" placeholder="Nom complet" required>
+        <input type="tel" id="telephone" placeholder="Téléphone" required>
+        <input type="text" id="logement" placeholder="Logement (ex : Appartement 2, Badalabougou)" required>
+        <input type="number" id="loyer" placeholder="Loyer mensuel (FCFA)" min="1" required>
+        <div class="boutons-form">
+          <button type="button" class="annuler" data-fermer>Annuler</button>
+          <button type="submit" class="valider">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="fond" id="modal-paiement">
+    <div class="fenetre">
+      <h3>Nouveau paiement</h3>
+      <form id="form-paiement">
+        <select id="choix-locataire" required></select>
+        <input type="number" id="montant" placeholder="Montant payé (FCFA)" min="1" required>
+        <input type="month" id="mois" required>
+        <div class="boutons-form">
+          <button type="button" class="annuler" data-fermer>Annuler</button>
+          <button type="submit" class="valider">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="fond" id="modal-historique">
+    <div class="fenetre">
+      <h3 id="titre-historique">Historique</h3>
+      <div id="liste-historique"></div>
+      <div class="boutons-form">
+        <button type="button" class="annuler" data-fermer>Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fond" id="modal-quittance">
+    <div class="fenetre">
+      <div id="recu"></div>
+      <div class="boutons-form">
+        <button type="button" class="annuler" data-fermer>Fermer</button>
+        <button type="button" class="valider" id="btn-imprimer">🖨️ Imprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pied">© 2026 BADLOYERS · Bamako, Mali</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

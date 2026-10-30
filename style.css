@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #f4f7f5;
+  color: #1f2d27;
+}
+
+.entete {
+  background: linear-gradient(135deg, #0b6b3a, #14a45a);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: #fcd116;
+}
+
+.slogan {
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+.contenu {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.carte {
+  background: white;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border-left: 8px solid;
+}
+
+.carte p {
+  color: #6b7a72;
+  margin-bottom: 8px;
+}
+
+.carte h2 {
+  font-size: 1.7rem;
+}
+
+.vert  { border-color: #14a45a; }
+.rouge { border-color: #ce1126; }
+.jaune { border-color: #fcd116; }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.bouton {
+  flex: 1;
+  min-width: 220px;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: #14a45a;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bouton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(20, 164, 90, 0.35);
+}
+
+.bouton.secondaire {
+  background: #fcd116;
+  color: #1f2d27;
+}
+
+.bouton.sombre {
+  background: #1f2d27;
+  color: white;
+}
+
+.pied {
+  text-align: center;
+  padding: 30px;
+  color: #6b7a72;
+  font-size: 0.9rem;
+}
+
+.titre-liste {
+  margin: 30px 0 12px;
+}
+
+.liste {
+  display: grid;
+  gap: 12px;
+}
+
+.vide {
+  text-align: center;
+  color: #6b7a72;
+  padding: 24px;
+  background: white;
+  border-radius: 14px;
+}
+
+.locataire {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.locataire h4 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.locataire p {
+  color: #6b7a72;
+  font-size: 0.9rem;
+}
+
+.droite {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.badge.ok {
+  background: #e3f6ec;
+  color: #0b6b3a;
+}
+
+.badge.ko {
+  background: #fde7ea;
+  color: #ce1126;
+}
+
+.supprimer {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.mini {
+  border: none;
+  background: #e3f6ec;
+  color: #0b6b3a;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.mini.wa {
+  background: #25d366;
+  color: white;
+}
+
+.groupe-boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.fond {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 10;
+}
+
+.fond.ouvert {
+  display: flex;
+}
+
+.fenetre {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  border-radius: 20px;
+}
+
+.fenetre h3 {
+  margin-bottom: 16px;
+  color: #0b6b3a;
+}
+
+.fenetre input,
+.fenetre select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 2px solid #e1e8e4;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.fenetre input:focus,
+.fenetre select:focus {
+  outline: none;
+  border-color: #14a45a;
+}
+
+.boutons-form {
+  display: flex;
+  gap: 10px;
+}
+
+.boutons-form button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.annuler {
+  background: #e1e8e4;
+}
+
+.valider {
+  background: #14a45a;
+  color: white;
+}
+
+.ligne-paiement {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e1e8e4;
+}
+
+.ligne-paiement p {
+  color: #6b7a72;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+#liste-historique {
+  max-height: 50vh;
+  overflow-y: auto;
+  margin-bottom: 14px;
+}
+
+.recu {
+  border: 3px double #0b6b3a;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.recu h2 {
+  text-align: center;
+  color: #0b6b3a;
+}
+
+.recu .marque {
+  text-align: center;
+  color: #6b7a72;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+}
+
+.recu p {
+  margin: 8px 0;
+}
+
+.recu .signature {
+  margin-top: 28px;
+  text-align: right;
+}
+
+.connexion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #0b6b3a, #14a45a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 50;
+}
+
+.connexion.cache {
+  display: none;
+}
+
+.boite-connexion {
+  background: white;
+  width: 100%;
+  max-width: 380px;
+  padding: 30px 24px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.boite-connexion .logo {
+  color: #0b6b3a;
+  margin-bottom: 12px;
+}
+
+.boite-connexion p {
+  color: #6b7a72;
+  margin-bottom: 14px;
+}
+
+.boite-connexion input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border: 2px solid #e1e8e4;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.boite-connexion input:focus {
+  outline: none;
+  border-color: #14a45a;
+}
+
+.boite-connexion .bouton {
+  width: 100%;
+}
+
+.boite-connexion .erreur {
+  color: #ce1126;
+  margin: 12px 0 0;
+  font-weight: 600;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #recu, #recu * {
+    visibility: visible;
+  }
+  .fond {
+    position: absolute;
+    background: white;
+    display: block;
+  }
+  #recu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
