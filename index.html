@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b6b3a">
   <title>BADLOYERS</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,29 +22,56 @@
   <header class="entete">
     <div class="logo">🏠 BAD<span>LOYERS</span></div>
     <p class="slogan">Gérez vos loyers simplement</p>
+    <div class="bandeau" id="bandeau-echeance"></div>
   </header>
 
   <main class="contenu">
     <section class="cartes">
       <div class="carte vert">
-        <p>Loyers encaissés (ce mois)</p>
+        <span class="icone">💰</span>
+        <p>Loyers encaissés</p>
         <h2 id="total-encaisse">0 FCFA</h2>
       </div>
       <div class="carte rouge">
-        <p>Impayés (ce mois)</p>
+        <span class="icone">⏳</span>
+        <p>Impayés</p>
         <h2 id="total-impayes">0 FCFA</h2>
       </div>
       <div class="carte jaune">
+        <span class="icone">👥</span>
         <p>Locataires</p>
         <h2 id="total-locataires">0</h2>
       </div>
+      <div class="carte bleu">
+        <span class="icone">📅</span>
+        <p>Prochaine échéance</p>
+        <h2 id="prochaine-echeance">-</h2>
+      </div>
+    </section>
+
+    <section class="progression">
+      <div class="progression-texte">
+        <span>Taux d'encaissement du mois</span>
+        <strong id="taux">0 %</strong>
+      </div>
+      <div class="barre"><div class="barre-remplie" id="barre"></div></div>
     </section>
 
     <section class="actions">
       <button class="bouton" id="btn-locataire">➕ Ajouter un locataire</button>
       <button class="bouton secondaire" id="btn-paiement">💰 Enregistrer un paiement</button>
-      <button class="bouton sombre" id="btn-export">📊 Exporter (Excel)</button>
+      <button class="bouton sombre" id="btn-export">📊 Exporter</button>
       <button class="bouton sombre" id="btn-verrouiller">🔒 Verrouiller</button>
+    </section>
+
+    <section class="outils">
+      <input type="search" id="recherche" placeholder="🔍 Rechercher un locataire ou un logement">
+      <div class="filtres">
+        <button class="filtre actif" data-filtre="tous">Tous</button>
+        <button class="filtre" data-filtre="impayes">Impayés</button>
+        <button class="filtre" data-filtre="payes">Payés</button>
+        <button class="filtre" data-filtre="rappel">🔔 À rappeler</button>
+      </div>
     </section>
 
     <h3 class="titre-liste">Mes locataires</h3>
@@ -52,10 +80,12 @@
 
   <div class="fond" id="modal-locataire">
     <div class="fenetre">
-      <h3>Nouveau locataire</h3>
+      <h3 id="titre-locataire">Nouveau locataire</h3>
       <form id="form-locataire">
+        <input type="hidden" id="id-edition">
         <input type="text" id="nom" placeholder="Nom complet" required>
-        <input type="tel" id="telephone" placeholder="Téléphone" required>
+        <input type="tel" id="telephone" placeholder="Téléphone (ex : 66787898)" required>
+        <input type="email" id="email" placeholder="E-mail (facultatif)">
         <input type="text" id="logement" placeholder="Logement (ex : Appartement 2, Badalabougou)" required>
         <input type="number" id="loyer" placeholder="Loyer mensuel (FCFA)" min="1" required>
         <div class="boutons-form">
